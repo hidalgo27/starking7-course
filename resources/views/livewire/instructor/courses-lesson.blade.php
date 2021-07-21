@@ -1,11 +1,13 @@
 <div>
     @foreach($section->lessons as $item)
-        <div class="card mt-4">
+
+        <article class="card mt-4" x-data="{open: false}">
             <div class="card-body">
+
                 @if($lesson->id == $item->id)
                     <form wire:submit.prevent="update">
                         <div class="flex items-center">
-                            <label class="w-32">Nombre:</label>
+                            <label class="w-32">Nombres:</label>
                             <input wire:model="lesson.name" type="text" class="form-input">
                         </div>
                         @error('lesson.name')
@@ -38,11 +40,13 @@
                     </form>
                 @else
                     <header>
-                        <h2><i class="far fa-play-circle text-blue-500 mr-1"></i> Lección: {{$item->name}}</h2>
+                        <h2 x-on:click="open = !open" class="cursor-pointer"><i class="far fa-play-circle text-blue-500 mr-1"></i> Lección: {{$item->name}}</h2>
                     </header>
 
-                    <div class="">
+                    <div x-show="open">
+
                         <hr class="my-2">
+
                         <p class="text-sm">Plataforma: {{$item->platform->name}}</p>
                         <p class="text-sm">Enlace: <a class="text-blue-600" href="{{$item->url}}" target="_blank">{{$item->url}}</a></p>
 
@@ -51,13 +55,17 @@
                             <button class="btn btn-danger text-sm" wire:click="destroy({{$item}})">Eliminar</button>
                         </div>
 
-                        <div class="">
-                            @livewire('instructor.lesson-description', ['lesson'=>$item], key($item->id))
+                        <div class="mb-4">
+                            @livewire('instructor.lesson-description', ['lesson' => $item], key('lesson-description' . $item->id))
+                        </div>
+
+                        <div>
+                            @livewire('instructor.lesson-resources', ['lesson'=> $item], key('lesson-resources' . $item->id))
                         </div>
                     </div>
                 @endif
             </div>
-        </div>
+        </article>
     @endforeach
 
         <div class="mt-4" x-data="{open: false}">
