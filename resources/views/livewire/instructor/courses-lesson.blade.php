@@ -46,9 +46,13 @@
                         <p class="text-sm">Plataforma: {{$item->platform->name}}</p>
                         <p class="text-sm">Enlace: <a class="text-blue-600" href="{{$item->url}}" target="_blank">{{$item->url}}</a></p>
 
-                        <div class="mt-2">
+                        <div class="my-2">
                             <button class="btn btn-primary text-sm" wire:click="edit({{$item}})">Editar</button>
                             <button class="btn btn-danger text-sm" wire:click="destroy({{$item}})">Eliminar</button>
+                        </div>
+
+                        <div class="">
+                            @livewire('instructor.lesson-description', ['lesson'=>$item], key($item->id))
                         </div>
                     </div>
                 @endif
