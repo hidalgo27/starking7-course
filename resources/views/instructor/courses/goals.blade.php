@@ -1,8 +1,8 @@
-<x-instructor-layout>
+<x-instructor-layout :course="$course">
 
-    <x-slot name="course">
-        {{$course->slug}}
-    </x-slot>
+{{--    <x-slot name="course">--}}
+{{--        {{$course->slug}}--}}
+{{--    </x-slot>--}}
 
     <div class="">
         @livewire('instructor.courses-goals', ['course' => $course], key('course-goals'.$course->id))

@@ -1,7 +1,7 @@
 <div>
-    <x-slot name="course">
-        {{$course->slug}}
-    </x-slot>
+{{--    <x-slot name="course">--}}
+{{--        {{$course->slug}}--}}
+{{--    </x-slot>--}}
 
     <h1 class="text-2xl font-bold">LECCIONES DEL CURSO</h1>
 

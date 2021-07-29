@@ -46,6 +46,12 @@ class Course extends Model
         return "slug";
     }
 
+    //relacion uno a uno
+
+    public function observation(){
+        return $this->hasOne(Observation::class);
+    }
+
     //Relacion uno a muchos
 
     public function reviews(){
@@ -57,7 +63,7 @@ class Course extends Model
     }
 
     public function goals(){
-        return $this->hasMany('App\Models\Goal');
+        return $this->hasMany(Goal::class);
     }
 
     public function audiences(){
