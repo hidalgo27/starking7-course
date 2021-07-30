@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Price;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class PriceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+        $prices = Price::all();
+        return view('admin.prices.index', compact('prices'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.prices.create');
     }
 
     /**
@@ -38,12 +38,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:categories'
+            'name' => 'required|unique:prices',
+            'value' => 'required|numeric'
         ]);
 
-        $category = Category::create($request->all());
+        $price = Price::create($request->all());
 
-        return redirect()->route('admin.categories.edit', $category)->with('info', 'La categoria se creó con éxito');
+        return redirect()->route('admin.prices.edit', compact('price'))->with('info', 'el precio se creo con éxito');
     }
 
     /**
@@ -52,9 +53,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Price $price)
     {
-        return view('admin.categories.show', compact('category'));
+        //
     }
 
     /**
@@ -63,9 +64,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Price $price)
     {
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.prices.edit', compact('price'));
     }
 
     /**
@@ -75,15 +76,16 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Price $price)
     {
         $request->validate([
-            'name' => 'required|unique:categories,name,'. $category->id
+            'name' => 'required|unique:prices,name,' . $price->id,
+            'value' => 'required|numeric'
         ]);
 
-        $category->update($request->all());
+        $price->update($request->all());
 
-        return redirect()->route('admin.categories.edit', $category)->with('info', 'La categoria se actualizó con éxito');
+        return redirect()->route('admin.prices.edit', compact('price'))->with('info', 'el precio se actualizó con éxito');
     }
 
     /**
@@ -92,10 +94,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Price $price)
     {
-        $category->delete();
+        $price->delete();
 
-        return redirect()->route('admin.categories.index')->with('info', 'La categoria se eliminó con éxito');
+        return redirect()->route('admin.prices.index')->with('info', 'El precio se eliminó con éxito');
     }
 }

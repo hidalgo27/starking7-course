@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Level;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class LevelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+        $levels = Level::all();
+        return view('admin.levels.index', compact('levels'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.levels.create');
     }
 
     /**
@@ -38,12 +38,12 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:categories'
+            'name' => 'required|unique:levels'
         ]);
 
-        $category = Category::create($request->all());
+        $level = Level::create($request->all());
 
-        return redirect()->route('admin.categories.edit', $category)->with('info', 'La categoria se creó con éxito');
+        return redirect()->route('admin.levels.edit', $level)->with('info', 'El nivel se creó con éxito');
     }
 
     /**
@@ -52,9 +52,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Level $level)
     {
-        return view('admin.categories.show', compact('category'));
+        return view('admin.levels.show', compact('level'));
     }
 
     /**
@@ -63,9 +63,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Level $level)
     {
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.levels.edit', compact('level'));
     }
 
     /**
@@ -75,15 +75,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Level $level)
     {
         $request->validate([
-            'name' => 'required|unique:categories,name,'. $category->id
+            'name' => 'required|unique:levels,name,' . $level->id
         ]);
 
-        $category->update($request->all());
-
-        return redirect()->route('admin.categories.edit', $category)->with('info', 'La categoria se actualizó con éxito');
+        $level->update($request->all());
+        return redirect()->route('admin.levels.edit', $level)->with('info', 'El nivel se actualizó con éxito');
     }
 
     /**
@@ -92,10 +91,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Level $level)
     {
-        $category->delete();
+        $level->delete();
 
-        return redirect()->route('admin.categories.index')->with('info', 'La categoria se eliminó con éxito');
+        return redirect()->route('admin.levels.index')->with('info', 'El nivel se eliminó con éxito');
     }
 }
