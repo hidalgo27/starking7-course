@@ -87,10 +87,17 @@
                         @can('enrolled', $course)
                             <a href="{{route('courses.status', $course)}}" class="btn-danger btn-block mt-4">Continuar con el curso</a>
                         @else
-                            <form action="{{route('courses.enrolled', $course)}}" method="post">
-                                @csrf
-                                <button type="submit" href="" class="btn-danger btn-block mt-4">Llevar este curso</button>
-                            </form>
+                            @if($course->price->value == 0)
+                                <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">GRATIS</p>
+                                <form action="{{route('courses.enrolled', $course)}}" method="post">
+                                    @csrf
+                                    <button type="submit" href="" class="btn-danger btn-block">Llevar este curso</button>
+                                </form>
+                            @else
+                                <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">US${{$course->price->value}}</p>
+                                <a href="{{route('payment.checkout', $course)}}" class="btn-danger btn-block">Comprar este curso</a>
+                            @endif
+
                         @endcan
 
                     </div>
