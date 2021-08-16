@@ -72,7 +72,7 @@ class StudentController extends Controller
 
         $course = Course::find($course_user->course_id);
         Certification::create([
-            'name' => $course->title,
+//            'name' => $course->title,
             'status' => '0',
             'course_user_id' => $course_user->id
         ]);
