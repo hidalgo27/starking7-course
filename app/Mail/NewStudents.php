@@ -36,6 +36,5 @@ class NewStudents extends Mailable
     {
         return $this->view('mail.new-students')
             ->subject('Nuevo Registro');
-            ;
     }
 }

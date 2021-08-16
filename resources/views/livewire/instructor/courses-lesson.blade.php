@@ -14,7 +14,7 @@
                             <span class="text-xs text-red-500">{{$message}}</span>
                         @enderror
 
-                        <div class="flex items-center mt-4">
+                        <div class="flex items-center mt-4 hidden">
                             <label class="w-32">Plataforma:</label>
 
                             <select wire:model="lesson.platform_id" class="form-input">
@@ -24,7 +24,7 @@
                             </select>
                         </div>
 
-                        <div class="flex items-center mt-4">
+                        <div class="flex items-center mt-4 hidden">
                             <label class="w-32">Url:</label>
                             <input wire:model="lesson.url" type="text" class="form-input">
                         </div>
@@ -47,8 +47,8 @@
 
                         <hr class="my-2">
 
-                        <p class="text-sm">Plataforma: {{$item->platform->name}}</p>
-                        <p class="text-sm">Enlace: <a class="text-blue-600" href="{{$item->url}}" target="_blank">{{$item->url}}</a></p>
+                        <p class="text-sm hidden">Plataforma: {{$item->platform->name}}</p>
+                        <p class="text-sm hidden">Enlace: <a class="text-blue-600" href="{{$item->url}}" target="_blank">{{$item->url}}</a></p>
 
                         <div class="my-2">
                             <button class="btn btn-primary text-sm" wire:click="edit({{$item}})">Editar</button>
@@ -87,7 +87,7 @@
                         <span class="text-xs text-red-500">{{$message}}</span>
                         @enderror
 
-                        <div class="flex items-center mt-4">
+                        <div class="flex items-center mt-4 hidden">
                             <label class="w-32">Plataforma:</label>
 
                             <select wire:model="platform_id" class="form-input">
@@ -100,7 +100,7 @@
                         <span class="text-xs text-red-500">{{$message}}</span>
                         @enderror
 
-                        <div class="flex items-center mt-4">
+                        <div class="flex items-center mt-4 hidden">
                             <label class="w-32">Url:</label>
                             <input wire:model="url" type="text" class="form-input">
                         </div>
