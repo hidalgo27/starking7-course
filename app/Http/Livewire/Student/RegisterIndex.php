@@ -45,7 +45,7 @@ class RegisterIndex extends Component
         $course_user->save();
 
         Certification::create([
-            'name' => $this->course->title,
+//            'name' => $this->course->title,
             'status' => '0',
             'course_user_id' => $course_user->id
         ]);

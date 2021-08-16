@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Instructores')
+@section('title', 'Estidiantes')
 
 @section('content_header')
     <h1>Crear Alumno</h1>
