@@ -112,18 +112,16 @@
                                     @endswitch
 
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     @if($student->certifications->status >= 2)
                                         <a href="{{route('students.verification', encrypt(Auth::user()->id))}}" class="text-indigo-600 hover:text-indigo-900"><i class="fas fa-link mr-2"></i>Link</a>
                                     @else
                                         pendiente
                                     @endif
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     @if($student->certifications->status >= 2)
-
-                                        <a href="{{route('students.certification', [$course, $student->certifications])}}" class="text-indigo-600 hover:text-indigo-900 flex items-center"><i class="fas fa-download mr-2"></i> Descargar
-                                            <br>certificado</a>
+                                        <a href="{{route('students.certification', [$course, $student->certifications])}}" class="text-indigo-600 hover:text-indigo-900 flex items-center"><i class="fas fa-download mr-2"></i> Descargar certificado</a>
                                     @else
                                         Certificado <br>pendiente
                                     @endif
