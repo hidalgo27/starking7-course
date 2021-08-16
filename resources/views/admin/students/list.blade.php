@@ -15,6 +15,5 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
     <script src="//unpkg.com/alpinejs" defer></script>
 @stop
