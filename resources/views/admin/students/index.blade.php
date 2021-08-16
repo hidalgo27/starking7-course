@@ -11,7 +11,6 @@
 @stop
 
 @section('css')
-    /*<link rel="stylesheet" href="/css/admin_custom.css">*/
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 @stop
 
