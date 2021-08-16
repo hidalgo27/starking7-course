@@ -5,8 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Level;
-use Livewire\Component;
 
+use Livewire\Component;
 use Livewire\WithPagination;
 
 class CoursesIndex extends Component

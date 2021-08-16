@@ -27,6 +27,19 @@ class Course extends Model
     }
 
     //Query scopes
+    public function scopeSstudents($query, $user_id) {
+        if ($user_id) {
+            return $query->where('user_id', $user_id);
+        }
+    }
+
+    public function scopeTeacher($query, $name) {
+        if ($name) {
+            return $query->orWhere('name', 'LIKE', '%' . $name . '%');
+        }
+    }
+
+    //Query scopes
     public function scopeCategory($query, $category_id) {
         if ($category_id) {
             return $query->where('category_id', $category_id);
@@ -74,6 +87,10 @@ class Course extends Model
         return $this->hasMany('App\Models\Section');
     }
 
+    public function course_certification(){
+        return $this->hasMany(CourseCertification::class);
+    }
+
     //Relacion uno a muchos inversa
     public function teacher(){
         return $this->belongsTo(User::class, 'user_id');
@@ -94,6 +111,10 @@ class Course extends Model
     //Relacion muchos a muchos
     public function students(){
         return $this->belongsToMany(User::class);
+    }
+
+    public function course_user(){
+        return $this->hasMany(CourseUser::class, 'course_id');
     }
 
     //Relacion uno a uno polimorfica

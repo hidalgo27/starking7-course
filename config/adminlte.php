@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>course</b>ADMIN',
+    'logo' => '<b>Starking7</b>ADMIN',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -262,11 +262,32 @@ return [
 
         ],
         [
+            'text'        => 'Instructores',
+            'route'         => 'admin.instructors.index',
+            'icon'        => 'fas fa-fw fa-user',
+//            'can'       => 'Leer usuarios',
+            'active'        => ['admin/instructors*'],
+        ],
+        [
+            'text'        => 'Alumnos',
+            'route'         => 'admin.students.index',
+            'icon'        => 'fas fa-fw fa-users',
+//            'can'       => 'Leer usuarios',
+            'active'        => ['admin/students'],
+        ],
+        [
             'text'        => 'Lista de usuarios',
             'route'         => 'admin.users.index',
             'icon'        => 'fas fa-fw fa-users',
             'can'       => 'Leer usuarios',
             'active'        => ['admin/users*'],
+        ],
+        [
+            'text'        => 'Alumnos por curso',
+            'route'         => 'admin.students.course.index',
+            'icon'        => 'fas fa-fw fa-users',
+//            'can'       => 'Leer usuarios',
+            'active'        => ['admin/students.course*'],
         ],
         ['header' => 'OPCIONES DE CURSO'],
         [
@@ -288,7 +309,12 @@ return [
             'text' => 'Pendientes de aprobación',
             'route'  => 'admin.courses.index',
             'icon' => 'fas fa-fw fa-user',
-        ]
+        ],
+        [
+            'text' => 'Lista de cursos',
+            'route'  => 'admin.courses.all',
+            'icon' => 'fab fa-fw fa-cc-visa',
+        ],
     ],
 
     /*

@@ -6,6 +6,8 @@ use App\Models\Lesson;
 use App\Models\Section;
 use App\Observers\LessonObserver;
 use App\Observers\SectionObserver;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -18,7 +20,28 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        /**
+         * Paginate a standard Laravel Collection.
+         *
+         * @param int $perPage
+         * @param int $total
+         * @param int $page
+         * @param string $pageName
+         * @return array
+         */
+        Collection::macro('paginate', function($perPage, $total = null, $page = null, $pageName = 'page') {
+            $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
+            return new LengthAwarePaginator(
+                $this->forPage($page, $perPage),
+                $total ?: $this->count(),
+                $perPage,
+                $page,
+                [
+                    'path' => LengthAwarePaginator::resolveCurrentPath(),
+                    'pageName' => $pageName,
+                ]
+            );
+        });
     }
 
     /**
@@ -33,5 +56,21 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('routeIs', function ($expression){
             return "<?php if (Request::url() == route($expression)): ?>";
         });
+
+        Collection::macro('paginate', function($perPage, $total = null, $page = null, $pageName = 'page') {
+            $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
+            return new LengthAwarePaginator(
+                $this->forPage($page, $perPage),
+                $total ?: $this->count(),
+                $perPage,
+                $page,
+                [
+                    'path' => LengthAwarePaginator::resolveCurrentPath(),
+                    'pageName' => $pageName,
+                ]
+            );
+        });
     }
+
+
 }

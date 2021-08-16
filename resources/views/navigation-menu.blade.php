@@ -10,10 +10,30 @@
             'route' => route('courses.index'),
             'active' => request()->routeIs('courses.*')
         ],
+        [
+            'name' => 'Certificación Global',
+            'route' => '/#certificacion-global',
+            'active' => ''
+        ],
+        [
+            'name' => 'Métodos de Pago',
+            'route' => '/#',
+            'active' => ''
+        ],
+        [
+            'name' => 'Sobre Nosotros',
+            'route' => '/#',
+            'active' => ''
+        ],
+        [
+            'name' => 'Contacto',
+            'route' => '/#contacto',
+            'active' => ''
+        ],
 
     ];
 @endphp
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
+<nav x-data="{ open: false }" class="bg-gradient-to-r from-gray-500 to-gray-800  shadow">
     <!-- Primary Navigation Menu -->
     <div class="container">
         <div class="flex justify-between h-16">
@@ -120,6 +140,10 @@
                                 Perfil
                             </x-jet-dropdown-link>
 
+                            <x-jet-dropdown-link href="{{ route('students.home') }}">
+                                Mis Cursos
+                            </x-jet-dropdown-link>
+
                             @can('Leer cursos')
                                 <x-jet-dropdown-link href="{{ route('instructor.courses.index') }}">
                                     Instructor
@@ -153,8 +177,8 @@
                         </x-slot>
                     </x-jet-dropdown>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                        <a href="{{ route('login') }}" class="text-sm text-white underline">Login</a>
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-white underline">Register</a>
                     @endauth
                 </div>
             </div>

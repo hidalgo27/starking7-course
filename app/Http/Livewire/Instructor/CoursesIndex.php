@@ -19,6 +19,7 @@ class CoursesIndex extends Component
             ->latest('id')
             ->paginate(8);
 
+
         return view('livewire.instructor.courses-index', compact('courses'));
     }
 

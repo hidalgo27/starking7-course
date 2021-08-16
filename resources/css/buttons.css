@@ -1,5 +1,5 @@
 .btn-primary{
-    @apply font-bold py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-700;
+    @apply transition duration-700 ease-in-out font-bold py-2 px-4 rounded bg-gradient-to-r from-yellow-300 to-yellow-500 text-white hover:from-yellow-500 hover:to-yellow-300;
 }
 .btn-danger{
     @apply font-bold py-2 px-4 rounded bg-red-500 text-white hover:bg-red-700;

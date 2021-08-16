@@ -75,7 +75,7 @@
 
             <div class="order-1 lg:order-2">
                 <section class="card mb-4">
-                    <div class="card-body">
+                    <div class="card-body" x-data="{ open: false }">
                         <div class="flex items-center">
                             <img class="h-12 w-12 object-cover rounded-full shadow-lg" src="{{$course->teacher->profile_photo_url}}" alt="{{ $course->teacher->name }}">
                             <div class="ml-4">
@@ -85,18 +85,36 @@
                         </div>
 
                         @can('enrolled', $course)
-                            <a href="{{route('courses.status', $course)}}" class="btn-danger btn-block mt-4">Continuar con el curso</a>
+{{--                            <a href="{{route('courses.status', $course)}}" class="btn-danger btn-block mt-4">Continuar con el curso</a>--}}
+                            <a href="{{route('students.home')}}" class="px-4 block py-3 mt-6 font-bold text-gray-700 text-center bg-gradient-to-r from-yellow-300 to-yellow-500">
+                                Ya Estas matriculado en el curso
+                                <span class="block text-white">Ver avance</a>
+                            </a>
                         @else
-                            @if($course->price->value == 0)
-                                <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">GRATIS</p>
+{{--                            @if($course->price->value == 0)--}}
+{{--                                <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">GRATIS</p>--}}
+
+{{--                                <form action="{{route('courses.enrolled', $course)}}" method="post">--}}
+{{--                                    @csrf--}}
+{{--                                    <button type="submit"  class="btn-danger btn-block">Llevar este curso</button>--}}
+{{--                                </form>--}}
+{{--                            @else--}}
+{{--                                <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">US${{$course->price->value}}</p>--}}
+{{--                                <a href="{{route('payment.checkout', $course)}}" class="btn-danger btn-block">Comprar este curso</a>--}}
+{{--                            @endif--}}
+
+{{--                            <a href="{{route('student.index')}}" class="btn-danger btn-block mt-4">Matricularse al curso</a>--}}
+
+                            @auth
                                 <form action="{{route('courses.enrolled', $course)}}" method="post">
                                     @csrf
-                                    <button type="submit" href="" class="btn-danger btn-block">Llevar este curso</button>
+                                    <button type="submit"  class="btn-danger btn-block">Llevar este cursos</button>
                                 </form>
                             @else
-                                <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">US${{$course->price->value}}</p>
-                                <a href="{{route('payment.checkout', $course)}}" class="btn-danger btn-block">Comprar este curso</a>
-                            @endif
+{{--                                <button type="button" class="btn-danger mt-2 btn-block" x-on:click="open = true" x-show="open">Matricularme a este curso</button>--}}
+                                @livewire('student.register-index', ['course' => $course], key('course'.$course->id))
+                            @endauth
+
 
                         @endcan
 

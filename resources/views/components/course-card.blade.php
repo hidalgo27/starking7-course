@@ -1,5 +1,5 @@
 @props(['course'])
-<article class="card flex flex-col">
+<article class="card flex flex-col swiper-slide">
     <img src="{{ Storage::url($course->image->url) }}" alt="">
     <div class="card-body flex-1 flex flex-col">
         <h2 class="card-title">{{Str::limit($course->title, 40)}}</h2>
@@ -27,7 +27,6 @@
                 <i class="fas fa-users"></i>
                 ({{$course->students_count}})
             </p>
-
         </div>
 
         @if($course->price->value == 0)
