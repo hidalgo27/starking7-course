@@ -19,6 +19,7 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Email</th>
+                        <th>Curso</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -29,6 +30,7 @@
                         <tr>
                             <td>{{$course_user->users->id}}</td>
                             <td>{{$course_user->users->name}}</td>
+                            <td>{{$course_user->users->email}}</td>
                             <td>{{$course_user->course->title}}</td>
                             <td width="10px">
                                 <button class="btn btn-danger btn-sm" type="button" wire:click="destroy({{$course_user->users}})">Eliminar</button>
