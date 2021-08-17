@@ -3,8 +3,8 @@
     <!-- Modal -->
     <div x-data="{ showModal : false }">
         <!-- Button -->
-        <button type="button" @click="showModal = !showModal" class="btn-danger mt-2 btn-block">Matricularme a este curso</button>
-
+{{--        <button type="button" @click="showModal = !showModal" class="btn-danger mt-2 btn-block">Matricularme a este curso</button>--}}
+        <button type="button" @click="showModal = !showModal" class="btn-danger mt-2 btn-block">REGISTRO PARA CERTIFICACIÓN</button>
         <!-- Modal Background -->
         <div x-show="showModal" class="fixed text-gray-500 flex items-center justify-center overflow-auto z-50 bg-gray-800 bg-opacity-90 left-0 right-0 top-0 bottom-0" x-transition:enter="transition ease duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
             <!-- Modal -->
