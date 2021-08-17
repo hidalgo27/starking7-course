@@ -30,7 +30,7 @@
         </div>
 
         @if($course->price->value == 0)
-            <p class="my-2 text-green-800 font-bold">GRATIS</p>
+            <p class="my-2 text-green-800 font-bold">MATRICULATE</p>
         @else
             <p class="my-2 text-gray-500 font-bold">US${{$course->price->value}}</p>
         @endif

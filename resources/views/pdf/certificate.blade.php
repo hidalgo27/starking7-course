@@ -23,18 +23,20 @@
 
         <img src="{{asset(Storage::url($course_certifications->image))}}" alt="" style="position: absolute; width: 100%; z-index: -1">
 
-        <div style="margin-top: 20%; text-align: center">
-            <span style="font-size: 20px; font-weight: bold">Certifica a</span><br>
-            <span style="font-size: 50px; font-weight: bold">{{$name}}</span><br>
-            <span style="font-size: 20px; margin-top: 20px; display: block">Por participar y aprobar el</span><br>
-            <span style="font-size: 30px; font-weight: bold">CURSO DE:</span><br>
-            <span style="font-size: 40px; margin-top: 10px; display: block">{{ucwords($course_certifications->title)}}</span><br>
-        </div>
-        <div style="margin-top: 270px; text-align: center; font-size: 12px !important;">
-            <span style="font-size: 20px; font-weight: bold">Certificado de aprobación</span><br>
-            <span style="font-size: 20px; font-weight: bold">Con una duración de {{$course_certifications->hours}} culminadas.</span><br>
+        <div style="margin-top: 25%; text-align: center">
+            <span style="font-size: 20px; font-weight: bold">En reconocimiento al compromiso con la excelencia profesional otorgado a:</span><br>
+            <span style="font-size: 50px; font-weight: bold; display: block; margin-top: 20px;">{{$name}}</span><br>
+            <span style="font-size: 20px; margin-top: 10px; display: block">Habiendo culminado con éxito el Programa de Especialización</span><br>
+            <span style="font-size: 20px; display: block">{{($course_certifications->subtitle)}} en el módulo:</span><br>
+            <span style="font-size: 35px; font-weight: bold">{{ucwords($course_certifications->title)}}</span><br>
+            <span style="font-size: 20px; margin-top: 20px; display: block">Con una duración de {{$course_certifications->hours}} horas culminadas.</span><br>
             <span style="font-size: 20px; font-weight: bold">{{$course_certifications->created_at}}</span><br>
         </div>
+{{--        <div style="margin-top: 0; text-align: center; font-size: 12px !important;">--}}
+{{--            <span style="font-size: 20px; font-weight: bold">Certificado de aprobación</span><br>--}}
+{{--            <span style="font-size: 20px; font-weight: bold">Con una duración de {{$course_certifications->hours}} culminadas.</span><br>--}}
+{{--            <span style="font-size: 20px; font-weight: bold">{{$course_certifications->created_at}}</span><br>--}}
+{{--        </div>--}}
         @if($loop->iteration < count($courses_2))
             <div class="page-break"></div>
         @endif
