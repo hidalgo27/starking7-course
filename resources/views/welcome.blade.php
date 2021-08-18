@@ -2,8 +2,8 @@
     <section class="bg-cover" style="background-image: url({{asset('images/home/people.jpg')}})">
         <div class="container py-36">
             <div class="w-full md:w-3/4 lg:w-1/2">
-                <h1 class="text-white font-bold text-4xl">Domina todo los cursos</h1>
-                <p class="text-white text-lg mt-2 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at, ipsa iste non rerum saepe sint suscipit. Deserunt dolorem ducimus facilis in itaque nobis quia totam. Reprehenderit similique tempora totam?</p>
+                <h1 class="text-white font-bold text-4xl">LA MEJOR FORMACION DE LATINOAMERICA</h1>
+                <p class="text-white text-lg mt-2 mb-4">En Starking7 lograrás la mejor preparación para los desafíos en la construcción de la mano de un equipo de BIM Managers e instructores internacionales certificados de Autodesk, impartiendo una enseñanza de primera categoría en BIM. </p>
 
                 @livewire('search')
 
