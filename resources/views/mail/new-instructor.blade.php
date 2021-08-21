@@ -15,7 +15,7 @@
 <body>
 <h1><strong>{{$user->name}}</strong></h1>
 <p>Starking7 te agrego como instructor, puedes acceder a tu cuenta desde:</p>
-<p><a href="http://starking7.nu/instructor/courses">http://starking7.nu/instructor/courses</a></p>
+<p><a href="http://admin.starking7.com/instructor/courses">http://admin.starking7.com/instructor/courses</a></p>
 <p>Usuario: {{$user->email}}</p>
 <p>Contraseña: {{$password}} (puede cambiar su contraseña desde su perfil)</p>
 <p>*** Se te asignará tus cursos. También puedes crear cursos nuevos y solicitar que se publiquen.</p>

@@ -15,7 +15,7 @@
 <body>
 <h1><strong>{{$user->name}}</strong></h1>
 <p>Starking7 te registro como estudiante al curso de <strong>{{$course_name}}</strong>, puedes acceder a tu cuenta desde:</p>
-<p><a href="http://admin.starking7.com/students">http://starking7.nu/students</a></p>
+<p><a href="http://admin.starking7.com/students">http://admin.starking7.com/students</a></p>
 <p>Usuario: {{$user->email}}</p>
 <p>Contraseña: {{$password}} (puede cambiar su contraseña desde su perfil)</p>
 <p>*** Cuando su certificación este disponible podrá descargarlo. Utilice su certificado link para poder mostrar a otras personas.</p>
