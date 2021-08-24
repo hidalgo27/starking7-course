@@ -36,17 +36,38 @@
                                 <a class="btn btn-sm btn-primary" href="{{route('admin.courses.assign', $course)}}">Asignar docente</a>
                             </td>
                             <td width="10px">
-                                <form action="{{route('admin.courses.find.deleted', $course)}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-                                </form>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Modal{{$course->id}}">
+                                    Eliminar
+                                </button>
+
 
 {{--                                <button class="btn btn-danger btn-sm" type="button" wire:click="destroy({{$course}})">Eliminar</button>--}}
 {{--                                {{$coursea}}--}}
                             </td>
 
                         </tr>
+                        <!-- Modal -->
+                        <div class="modal fade" id="Modal{{$course->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar curso</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Estas seguro de eliminar curso?</p>
+                                        <form action="{{route('admin.courses.find.deleted', $course)}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger btn-sm" type="submit">Eliminar de todas maneras</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                     </tbody>
                 </table>

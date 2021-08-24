@@ -264,14 +264,14 @@ return [
         [
             'text'        => 'Instructores',
             'route'         => 'admin.instructors.index',
-            'icon'        => 'fas fa-fw fa-user',
+            'icon'        => 'fas fa-fw fa-user-tie',
 //            'can'       => 'Leer usuarios',
             'active'        => ['admin/instructors*'],
         ],
         [
             'text'        => 'Alumnos',
             'route'         => 'admin.students.index',
-            'icon'        => 'fas fa-fw fa-users',
+            'icon'        => 'fas fa-fw fa-user-friends',
 //            'can'       => 'Leer usuarios',
             'active'        => ['admin/students'],
         ],
@@ -285,7 +285,7 @@ return [
         [
             'text'        => 'Alumnos por curso',
             'route'         => 'admin.students.course.index',
-            'icon'        => 'fas fa-fw fa-users',
+            'icon'        => 'fas fa-fw fa-user-cog',
 //            'can'       => 'Leer usuarios',
             'active'        => ['admin/students.course*'],
         ],
@@ -311,9 +311,9 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Lista de cursos',
+            'text' => 'Cursos',
             'route'  => 'admin.courses.all',
-            'icon' => 'fab fa-fw fa-cc-visa',
+            'icon' => 'fas fa-book',
         ],
     ],
 

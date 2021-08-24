@@ -6,14 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        h1{
-            color: red;
-        }
-    </style>
+
 </head>
 <body>
-<h1>Correo de prueba</h1>
-<p>El curso <strong>{{$course->title}}</strong> se ha aprovado con exito</p>
+<h1><strong>Felicitaciones</strong></h1>
+<p>Su curso <strong>{{$course->title}}</strong> se ha aprobado con éxito</p>
 </body>
 </html>

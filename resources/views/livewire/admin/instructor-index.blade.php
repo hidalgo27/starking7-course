@@ -34,9 +34,30 @@
 {{--                                    @method('delete')--}}
 
 {{--                                </form>--}}
-                                <button class="btn btn-danger btn-sm" type="button" wire:click="destroy({{$user}})">Eliminar</button>
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Modal{{$user->id}}">
+                                    Eliminar
+                                </button>
                             </td>
                         </tr>
+                        <!-- Modal -->
+                        <div class="modal fade" id="Modal{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar instructor</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>¿Estas seguro de eliminar al instructor <b>{{$user->name}}</b>? Si elimina el instructor también se eliminará sus cursos que fueron asignados a este instructor.</p>
+                                        <p>*** Si deseas que su curso permanezca aginé a otro docente su curso. Puede hacerlo desde
+                                            <a href="{{route('admin.courses.all')}}">aquí antes de eliminar.</a></p>
+                                        <button class="btn mt-2 btn-danger" type="button" wire:click="destroy({{$user}})">Eliminar de todas formas</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                     </tbody>
                 </table>
