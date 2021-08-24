@@ -8,6 +8,7 @@ use App\Mail\RejectCourse;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CourseCertification;
+use App\Models\Image;
 use App\Models\Level;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -124,5 +125,13 @@ class CourseController extends Controller
         Storage::delete($coursecertification->image);
         $coursecertification->delete();
         return back()->with('info', 'El certificado se eliminó con éxito');
+    }
+
+    public function course_deleted(Course $course)
+    {
+        Storage::delete($course->image->url);
+        $course->image->delete();
+        $course->delete();
+        return back()->with('info', 'El curso se eliminó con éxito');
     }
 }

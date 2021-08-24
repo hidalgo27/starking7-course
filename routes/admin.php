@@ -45,6 +45,7 @@ Route::post('courses/{course}/reject', [CourseController::class, 'reject'])->nam
 Route::get('courses/all/list', [CourseController::class, 'all'])->name('courses.all');
 Route::get('courses/all/assign/{course}', [CourseController::class, 'assign'])->name('courses.assign');
 Route::post('courses/all/assign/{course}/update', [CourseController::class, 'assign_update'])->name('courses.assign.update');
+Route::delete('courses/all/assign/{course}/deleted/find', [CourseController::class, 'course_deleted'])->name('courses.find.deleted');
 
 Route::get('courses/{course}/certifications', [CourseController::class, 'certifications'])->name('courses.certifications');
 Route::post('courses/{course}/certifications/store', [CourseController::class, 'certifications_store'])->name('courses.certifications.store');
