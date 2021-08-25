@@ -35,7 +35,7 @@
             <p class="my-2 text-gray-500 font-bold">US${{$course->price->value}}</p>
         @endif
 
-        <a href="{{route('courses.show', $course)}}" class="btn-primary btn-block">Catálgogo de cursos</a>
+        <a href="{{route('courses.show', $course)}}" class="btn-primary btn-block">Ver detalles</a>
 
     </div>
 </article>

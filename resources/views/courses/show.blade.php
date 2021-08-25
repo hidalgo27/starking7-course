@@ -108,7 +108,7 @@
                             @auth
                                 <form action="{{route('courses.enrolled', $course)}}" method="post">
                                     @csrf
-                                    <button type="submit"  class="btn-danger btn-block">Llevar este cursos</button>
+                                    <button type="submit"  class="btn-danger btn-block">Inscribirse</button>
                                 </form>
                             @else
 {{--                                <button type="button" class="btn-danger mt-2 btn-block" x-on:click="open = true" x-show="open">Matricularme a este curso</button>--}}
