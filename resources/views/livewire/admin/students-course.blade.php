@@ -163,9 +163,9 @@
                 <!-- More people... -->
                 </tbody>
             </table>
-{{--            <div class="px-6 py-4">--}}
-{{--                {{$students->links()}}--}}
-{{--            </div>--}}
+            <div class="px-6 py-4">
+                {{$course_users->links()}}
+            </div>
     </x-table-responsive>
 
 {{--    <div class="card">--}}
